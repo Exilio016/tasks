@@ -6,4 +6,4 @@ runs:
     - name: Install system dependencies
       shell: bash
       run: |
-        brew install ninja cmake
+        brew install ninja cmake autoconf autoconf-archive automake libtool
