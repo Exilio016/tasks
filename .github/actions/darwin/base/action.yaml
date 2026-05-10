@@ -1,9 +1,0 @@
-name: "Ubuntu base dependencies"
-
-runs:
-  using: "composite"
-  steps:
-    - name: Install system dependencies
-      shell: bash
-      run: |
-        brew install ninja cmake autoconf autoconf-archive automake libtool

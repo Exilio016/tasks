@@ -1,16 +1,14 @@
 {
   "version": 6,
   "include": [
-    "generators/ninja.json",
-    "toolchains/vcpkg.json"
+    "generators/ninja.json"
   ],
   "configurePresets": [
     {
       "name": "base",
       "hidden": true,
       "inherits": [
-        "ninja-multi-config",
-        "vcpkg"
+        "ninja-multi-config"
       ],
       "binaryDir": "${sourceDir}/build/${presetName}",
       "cacheVariables": {
