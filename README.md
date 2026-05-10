@@ -18,18 +18,18 @@ everything in a local SQLite database.
 - A C++23 compiler (recent GCC or Clang)
 - [SQLiteCpp](https://github.com/SRombauts/SQLiteCpp)
 - GTK 4 (with `pkg-config`)
+- Ninja
 
 On Debian/Ubuntu:
 
 ```bash
-sudo apt install build-essential cmake pkg-config libsqlitecpp-dev libgtk-4-dev
+sudo apt install build-essential cmake pkg-config libsqlitecpp-dev libgtk-4-dev ninja
 ```
 
 ## Build
 
 ```bash
-cmake -B build -S .
-cmake --build build -j
+cmake --workflow --preset x64-linux-gcc
 ```
 
 The binary is produced at `build/tasks`. Run it with:
@@ -55,14 +55,8 @@ created automatically and released when the process exits.
 ├── CMakeLists.txt              CMake build configuration
 ├── main.cpp                    Entry point + single-instance lock + DB bootstrap
 ├── gui.hpp / gui.cpp           GTK4 user interface
-├── task.hpp / task.cpp         Task model, persistence, per-day work time
-└── .github/workflows/          CI (CMake, multi-platform)
+└──  task.hpp / task.cpp         Task model, persistence, per-day work time
 ```
-
-## CI
-
-GitHub Actions builds the project on Ubuntu (GCC and Clang) every push and pull request to `main`. See
-`.github/workflows/cmake-multi-platform.yml`.
 
 ## License
 
